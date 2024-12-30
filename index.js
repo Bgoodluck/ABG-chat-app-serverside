@@ -18,7 +18,7 @@ app.use(cookiesParser()); // Add this line before using any middleware that uses
 
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "https://abg-chat-app-clientside.vercel.app",
     allowedHeaders: ["Content-Type", "Authorization", "auth-token", "token"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true
