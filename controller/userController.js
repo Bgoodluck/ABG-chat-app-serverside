@@ -149,7 +149,8 @@ exports.checkPassword = async(req, res)=>{
 exports.userDetails = async(req, res)=>{
     try {
 
-        const token = req.cookies.token || ""
+        const token = req.headers.authorization || req.cookies.token; // Check both header and cookies
+
 
         if (!token) {
             return res.status(401).json({
