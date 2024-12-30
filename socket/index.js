@@ -25,13 +25,13 @@ const server = http.createServer(app);
 // server.js update
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL,
+    origin: "https://abg-chat-app-clientside.vercel.app" || process.env.FRONTEND_URL,
     methods: ["GET", "POST"],
     credentials: true,
   },
   pingTimeout: 60000,
   pingInterval: 25000,
-  transports: ['websocket'],
+  transports: ['websocket', 'polling'],
   allowEIO3: true,
   path: '/socket.io/',
   connectTimeout: 45000,
